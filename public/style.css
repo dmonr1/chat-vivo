@@ -298,6 +298,10 @@ body.light-mode {
     .message .text {
         margin-right: 50px;
     }
+
+    .message .text {
+        margin-right: 26px !important; 
+    }
     
 }
 
