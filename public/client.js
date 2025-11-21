@@ -1,42 +1,68 @@
-// client.js
-const socket = io(); // conecta al servidor que sirvió la página
+const socket = io();
 
 const form = document.getElementById("form");
-const input = document.getElementById("msg");
-const usernameInput = document.getElementById("username");
+const username = document.getElementById("username");
+const msg = document.getElementById("msg");
 const messages = document.getElementById("messages");
 
-function appendMessage(payload) {
-  const div = document.createElement("div");
-  div.classList.add("message");
-  const timeStr = payload.time || new Date().toLocaleTimeString();
-  div.innerHTML = `<div class="meta"><strong>${escapeHtml(payload.user || "Anon")}</strong> · <span>${timeStr}</span></div>
-                   <div class="text">${escapeHtml(payload.text)}</div>`;
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
-}
+let myName = "";
+
+// Actualiza el nombre
+username.addEventListener("change", () => {
+  myName = username.value.trim();
+});
+
+// Enviar con Enter
+msg.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    form.dispatchEvent(new Event("submit"));
+  }
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const text = input.value.trim();
-  const user = usernameInput.value.trim() || "Anon";
+
+  const text = msg.value.trim();
+  const user = username.value.trim() || "Anon";
+
   if (!text) return;
-  const payload = { user, text, time: new Date().toLocaleTimeString() };
-  socket.emit("chatMessage", payload);
-  input.value = "";
-  input.focus();
+
+  myName = user;
+
+  const payload = {
+    username: user,
+    message: text
+  };
+
+  socket.emit("chat-message", payload);
+
+  msg.value = "";
+  msg.focus();
 });
 
-socket.on("chatMessage", (payload) => {
-  appendMessage(payload);
-});
+// Recibir mensaje del servidor
+socket.on("chat-message", (payload) => {
+  const box = document.createElement("div");
+  box.classList.add("message");
 
-// pequeño escape para evitar inyección HTML
-function escapeHtml(unsafe) {
-  return unsafe
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+  if (payload.username === myName) {
+    box.classList.add("sent");
+  } else {
+    box.classList.add("received");
+  }
+
+  const name = document.createElement("div");
+  name.classList.add("username");
+  name.textContent = payload.username;
+
+  const text = document.createElement("div");
+  text.classList.add("text");
+  text.textContent = payload.message;
+
+  box.appendChild(name);
+  box.appendChild(text);
+
+  messages.appendChild(box);
+  messages.scrollTop = messages.scrollHeight;
+});

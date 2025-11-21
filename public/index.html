@@ -9,7 +9,6 @@
 
 <body>
   <div class="chat-box">
-
     <header>
       <h2>DmonCode</h2>
     </header>
@@ -17,14 +16,15 @@
     <div id="messages" class="messages"></div>
 
     <form id="form" class="form">
-      <input id="username" placeholder="Tu nombre..." autocomplete="off" required />
+      <input id="username" class="nick" placeholder="Tu nombre..." autocomplete="off" required />
       <input id="msg" placeholder="Escribe un mensaje..." autocomplete="off" required />
       <button type="submit">Enviar</button>
     </form>
-
   </div>
 
+  <!-- Socket.io -->
   <script src="/socket.io/socket.io.js"></script>
+  <!-- Lógica del cliente -->
   <script src="client.js"></script>
 </body>
 </html>

@@ -12,26 +12,26 @@ body {
   align-items: center;
 }
 
-/* Contenedor principal tipo iPhone */
+/* Contenedor estilo app */
 .chat-box {
   width: 100%;
-  max-width: 42%;
+  max-width: 500px;
   height: 95vh;
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  border: 2px solid #e6e6e6;
+  border: 2px solid #eaeaea;   /* pastel */
   border-radius: 20px;
   overflow: hidden;
 }
 
-/* Header blanco minimal */
+/* Header */
 header {
   padding: 18px;
   background: #ffffff;
   color: #000;
   text-align: center;
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid #eaeaea;
 }
 
 header h2 {
@@ -49,57 +49,94 @@ header h2 {
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-/* Burbujas de chat estilo iPhone */
+/* Burbuja base */
 .message {
   max-width: 80%;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 18px;
   font-size: 15px;
-  background: #f2f2f7;
-  color: #000;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: 0.2s ease;
 }
 
-/* Formulario inferior */
+/* Nombre usuario */
+.message .username {
+  font-size: 11px;
+  color: #666;
+  margin-left: 4px;
+}
+
+/* Recibido pastel gris */
+.message.received {
+  background: #F7F7FA; /* pastel gris */
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #EDEDED;
+}
+
+/* Enviado pastel celeste */
+.message.sent {
+  background: #AEE6FF; /* celeste pastel */
+  color: #003244;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #96D8F4;
+}
+
+/* Formulario */
 .form {
   display: flex;
   gap: 10px;
   padding: 15px;
   background: #ffffff;
-  border-top: 2px solid #eeeeee;
+  border-top: 2px solid #eaeaea;
+  align-items: center;
 }
 
-/* Inputs redondeados */
-.form input {
-  flex: 1;
-  padding: 12px 14px;
-  border: 2px solid #e6e6e6;
+/* Input nombre */
+#username {
+  width: 120px;
+  padding: 10px 12px;
+  font-size: 13px;
   border-radius: 30px;
-  font-size: 15px;
-  outline: none;
+  border: 2px solid #eaeaea;
   background: #fafafa;
 }
 
-/* Botón estilo bubble */
+/* Input mensaje */
+#msg {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #eaeaea;
+  border-radius: 30px;
+  font-size: 15px;
+  background: #fafafa;
+}
+
+/* Botón pastel */
 .form button {
   padding: 12px 18px;
-  background: #007aff;
+  background: #AEE6FF; /* celeste pastel */
   border: none;
-  color: white;
+  color: #003244;
   font-size: 15px;
   font-weight: 600;
   border-radius: 30px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .form button:hover {
-  background: #005fcc;
+  background: #96D8F4;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .chat-box {
     height: 100vh;
