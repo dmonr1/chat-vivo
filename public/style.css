@@ -294,6 +294,10 @@ body.light-mode {
     .form {
         gap: 7px;
     }
+    
+    .message .text {
+        margin-right: 40px;
+    }
 }
 
 .messages::-webkit-scrollbar {
