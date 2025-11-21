@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -6,17 +6,22 @@
   <title>DmonCode</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="chat-container">
-    <header><h2>Chat en vivo</h2></header>
+  <div class="chat-box">
+
+    <header>
+      <h2>DmonCode</h2>
+    </header>
 
     <div id="messages" class="messages"></div>
 
     <form id="form" class="form">
-      <input id="username" placeholder="Tu nombre" autocomplete="off" />
-      <input id="msg" placeholder="Escribe un mensaje..." autocomplete="off" />
+      <input id="username" placeholder="Tu nombre..." autocomplete="off" required />
+      <input id="msg" placeholder="Escribe un mensaje..." autocomplete="off" required />
       <button type="submit">Enviar</button>
     </form>
+
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
