@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DmonCode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <header><h2>Chat en vivo</h2></header>
+
+    <div id="messages" class="messages"></div>
+
+    <form id="form" class="form">
+      <input id="username" placeholder="Tu nombre" autocomplete="off" />
+      <input id="msg" placeholder="Escribe un mensaje..." autocomplete="off" />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
