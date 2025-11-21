@@ -278,7 +278,7 @@ body.light-mode {
         max-width: 100%;
         border-radius: 0;
         backdrop-filter: blur(0px);
-
+        background: rgb(255 255 255 / 2%);
     }
 
     #username {
@@ -294,7 +294,7 @@ body.light-mode {
     .form {
         gap: 7px;
     }
-    
+
     .message .text {
         margin-right: 40px;
     }
