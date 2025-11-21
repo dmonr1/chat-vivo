@@ -20,7 +20,7 @@ body {
 header {
     width: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 16px 0px;
     position: relative;
@@ -41,9 +41,9 @@ header h2 {
 
     width: 50px;
     height: 28px;
-    background: rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 
     cursor: pointer;
 
@@ -71,7 +71,7 @@ header h2 {
     top: 2px;
     left: 2px;
     transition: transform 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 body.light-mode .toggle-ball {
@@ -92,7 +92,7 @@ body.light-mode {
     backdrop-filter: blur(14px);
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 
     display: flex;
     flex-direction: column;
@@ -119,18 +119,25 @@ body.light-mode {
     flex-direction: column;
 
     position: relative;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
 
     gap: 0px;
     animation: fadeIn 0.2s ease;
     font-family: 'Poppins';
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.18); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Nombre arriba */
@@ -155,11 +162,11 @@ body.light-mode {
 }
 
 .message.received {
-    background: rgba(255,255,255,0.55);
+    background: rgba(255, 255, 255, 0.55);
     color: #111;
     align-self: flex-start;
 
-    border: none; 
+    border: none;
     border-radius: 20px 20px 20px 8px;
     text-align: end;
 }
@@ -169,7 +176,7 @@ body.light-mode {
     color: #fff;
     align-self: flex-end;
 
-    border: none; 
+    border: none;
     border-radius: 20px 20px 8px 20px;
 }
 
@@ -182,12 +189,13 @@ body.light-mode {
     display: flex;
     gap: 10px;
     padding: 12px;
-    background: rgba(0,0,0,0.25);
-    border-top: 1px solid rgba(255,255,255,0.25);
+    background: rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
     align-items: center;
 }
 
-#username, #msg {
+#username,
+#msg {
     font-family: 'Poppins';
     padding: 0px 12px;
     border-radius: 12px;
@@ -196,9 +204,9 @@ body.light-mode {
     font-size: 14px;
 
     height: 38px;
-    background: rgba(255,255,255,0.45);
+    background: rgba(255, 255, 255, 0.45);
     color: #ffffff;
-    
+
 }
 
 #username::placeholder,
@@ -219,7 +227,7 @@ body.light-mode {
 .img-btn {
     width: 42px;
     height: 42px;
-    background: rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
     border-radius: 50px;
     cursor: pointer;
     display: flex;
@@ -230,7 +238,7 @@ body.light-mode {
 
 .img-btn:hover {
     transform: scale(1.07);
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .img-btn:active {
@@ -241,7 +249,7 @@ body.light-mode {
     width: 42px;
     height: 42px;
     border-radius: 50px;
-    background: rgba(0,110,255,0.7);
+    background: rgba(0, 110, 255, 0.7);
     border: none;
     cursor: pointer;
     display: flex;
@@ -251,7 +259,7 @@ body.light-mode {
 }
 
 .send-btn:hover {
-    background: rgba(0,110,255,0.9);
+    background: rgba(0, 110, 255, 0.9);
     transform: scale(1.07);
 }
 
@@ -269,15 +277,26 @@ body.light-mode {
         height: 100vh;
         max-width: 100%;
         border-radius: 0;
-    }
+        backdrop-filter: blur(none);
 
+    }
+    
     #username {
         width: 58px;
     }
-    
-    #username, #msg {
 
+    #username,
+    #msg {
+        width: 70px;
         font-size: 13px;
+    }
+
+    .form {
+        gap: 7px;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        align-items: center;
     }
 }
 
@@ -286,16 +305,16 @@ body.light-mode {
 }
 
 .messages::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.20);
+    background: rgba(255, 255, 255, 0.20);
     border-radius: 10px;
 }
 
 .messages::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.55);
+    background: rgba(255, 255, 255, 0.55);
     border-radius: 10px;
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid rgba(255, 255, 255, 0.25);
 }
 
 .messages::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.75);
+    background: rgba(255, 255, 255, 0.75);
 }
