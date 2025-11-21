@@ -141,14 +141,12 @@ body.light-mode {
     }
 }
 
-/* Nombre arriba */
 .message .username {
     font-size: 11px;
     opacity: 0.75;
     margin-bottom: 2px;
 }
 
-/* Texto */
 .message .text {
     margin-right: 25px;
 }
@@ -180,8 +178,6 @@ body.light-mode {
     border: none;
     border-radius: 20px 20px 8px 20px;
 }
-
-
 
 .message img {
     max-width: 260px;
@@ -299,7 +295,7 @@ body.light-mode {
     }
 
     .message.sent .text {
-        margin-right: 25px;
+        margin-right: 40px;
     
     }
     
