@@ -110,7 +110,7 @@ body.light-mode {
 }
 
 .message {
-    max-width: 75%;
+    max-width: 45%;
     padding: 12px 16px;
     border-radius: 20px;
     font-size: 15px;
@@ -126,6 +126,7 @@ body.light-mode {
     font-family: 'Poppins';
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    word-break: break-word; 
 }
 
 @keyframes fadeIn {
@@ -179,6 +180,11 @@ body.light-mode {
     border: none;
     border-radius: 20px 20px 8px 20px;
 }
+
+.message.sent .text {
+    margin-right: 25px;
+}
+
 
 .message img {
     max-width: 260px;
@@ -293,10 +299,6 @@ body.light-mode {
 
     .form {
         gap: 7px;
-    }
-
-    .message .text {
-        margin-right: 50px;
     }
 
     .message .text {
