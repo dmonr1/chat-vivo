@@ -295,11 +295,10 @@ body.light-mode {
         gap: 7px;
     }
 
-
-    .message .received .time{
-        margin-right: 0px;
-
+    .message .text {
+        margin-right: 50px;
     }
+    
 }
 
 .messages::-webkit-scrollbar {
