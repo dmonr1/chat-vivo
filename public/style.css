@@ -270,6 +270,15 @@ body.light-mode {
         max-width: 100%;
         border-radius: 0;
     }
+
+    #username {
+        width: 58px;
+    }
+    
+    #username, #msg {
+
+        font-size: 13px;
+    }
 }
 
 .messages::-webkit-scrollbar {
