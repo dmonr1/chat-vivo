@@ -5,21 +5,15 @@ const username = document.getElementById("username");
 const msg = document.getElementById("msg");
 const messages = document.getElementById("messages");
 
-const imgInput = document.getElementById("imageInput"); // <- ESTE COINCIDE CON TU HTML
-const imgBtn = document.querySelector(".img-btn");       // BOTÓN DEL ÍCONO IMAGEN
+const imgInput = document.getElementById("imageInput"); 
+const imgBtn = document.querySelector(".img-btn");      
 
 let myName = "";
 
-/* ===========================
-   ACTUALIZAR NOMBRE
-=========================== */
 username.addEventListener("change", () => {
     myName = username.value.trim();
 });
 
-/* ===========================
-   ENVIAR TEXTO CON ENTER
-=========================== */
 msg.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         e.preventDefault();
@@ -30,16 +24,13 @@ msg.addEventListener("keydown", (e) => {
 });
 
 
-/* ===========================
-   ENVIAR MENSAJE DE TEXTO
-=========================== */
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const text = msg.value.trim();
     const user = username.value.trim() || "Anon";
 
-    if (text === "") return; // <--- evita enviar form vacío
+    if (text === "") return; 
 
     myName = user;
 
@@ -49,31 +40,22 @@ form.addEventListener("submit", (e) => {
         type: "text",
         time: getHour()
     });
-    
+
     msg.value = "";
     msg.focus();
 });
 
 
-/* ===========================
-   BOTÓN IMAGEN -> ABRIR INPUT
-=========================== */
 imgBtn.addEventListener("mousedown", (e) => {
-    e.preventDefault(); // evita doble disparo
-    imgInput.value = ""; 
+    e.preventDefault(); 
+    imgInput.value = "";
     imgInput.click();
 });
 
-/* ===========================
-   FORZAR CHANGE INCLUSO CON DOBLE CLIC
-=========================== */
 imgInput.addEventListener("click", () => {
-    imgInput.value = ""; // obligar a recargar siempre
+    imgInput.value = ""; 
 });
 
-/* ===========================
-   CUANDO SELECCIONA UNA IMAGEN
-=========================== */
 imgInput.addEventListener("change", () => {
     const file = imgInput.files[0];
     if (!file) return;
@@ -89,7 +71,7 @@ imgInput.addEventListener("change", () => {
             image: reader.result,
             type: "image",
             time: getHour()
-        });       
+        });
 
         imgInput.value = "";
         msg.focus();
@@ -98,9 +80,6 @@ imgInput.addEventListener("change", () => {
     reader.readAsDataURL(file);
 });
 
-/* ===========================
-   RECIBIR MENSAJES DEL SERVIDOR
-=========================== */
 socket.on("chat-message", (payload) => {
     const box = document.createElement("div");
     box.classList.add("message");
@@ -116,7 +95,6 @@ socket.on("chat-message", (payload) => {
     name.textContent = payload.username;
     box.appendChild(name);
 
-    // Mensaje texto
     if (payload.type === "text") {
         const text = document.createElement("div");
         text.classList.add("text");
@@ -124,14 +102,12 @@ socket.on("chat-message", (payload) => {
         box.appendChild(text);
     }
 
-    // Imagen
     if (payload.type === "image") {
         const img = document.createElement("img");
         img.src = payload.image;
         box.appendChild(img);
     }
 
-    // 🔥 Hora
     const time = document.createElement("div");
     time.classList.add("time");
     time.textContent = payload.time;
@@ -148,3 +124,18 @@ function getHour() {
     return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
+const toggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+}
+
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+});
