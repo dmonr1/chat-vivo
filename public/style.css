@@ -295,8 +295,10 @@ body.light-mode {
         gap: 7px;
     }
 
-    .message .text {
-        margin-right: 40px;
+
+    .message .received .time{
+        margin-right: 0px;
+
     }
 }
 
